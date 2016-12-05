@@ -12,10 +12,14 @@
                   [org.clojure/tools.nrepl        "0.2.12"          :scope  "test"]
                   [org.clojure/clojure            "1.8.0"]
                   [org.clojure/clojurescript      "1.8.51"]
-                  [reagent                        "0.6.0-rc"]
+                  [reagent                        "0.6.0"]
+                  [re-frame                       "0.8.0"]
+                  [print-foo-cljs "2.0.0"]
+                  [camel-snake-kebab "0.4.0"]
+                  [medley "0.8.1"]])
                   ;; [react-native-externs "0.0.1-SNAPSHOT"]
-                  ]
-  )
+
+
 
 (require
   '[adzerk.boot-cljs             :refer  [cljs]]
@@ -24,8 +28,8 @@
   '[boot.core                    :as     b]
   '[boot.util                    :as     u]
   '[clojure.string               :as     s]
-  '[mattsum.boot-react-native    :as     rn :refer [patch-rn]]
-  )
+  '[mattsum.boot-react-native    :as     rn :refer [patch-rn]])
+
 
 (task-options! patch-rn {:app-dir "app"})
 

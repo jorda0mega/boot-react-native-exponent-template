@@ -1,5 +1,10 @@
 (ns cajitas.core
-  (:require [reagent.core :as r]
+  (:require [reagent.core :as r :refer [atom]]
+            [re-frame.core :refer [subscribe dispatch dispatch-sync]]
+            [cajitas.handlers]
+            [cajitas.subs]
+            [cajitas.shared.ui :as ui]
+            [cajitas.components.offering-row :refer [offering-row]]
             [cljs.test :as test]))
 
 (enable-console-print!)
@@ -15,38 +20,39 @@
 ;;
 ;; We use `defonce' to prevent errors on subsequent reloads.
 
-(defonce logo (js/require "../../assets/cljs.png"))
+(def app-registry (.-AppRegistry react))
 
-(def view (r/adapt-react-class (.-View react)))
-(def text (r/adapt-react-class (.-Text react)))
-(def touchable-highlight (r/adapt-react-class (.-TouchableHighlight react)))
-(def image (r/adapt-react-class (.-Image react)))
+(def styles
+  (ui/create-stylesheet
+    {:scroll-view
+     {:flex-direction "column"
+      :align-items "flex-start"
+      :margin-top 60}
+     :no-results
+      {:flex-direction "column"
+       :align-items "center"
+       :margin-top 60}}))
 
+;(defn root-view []
+;      (let [offerings (subscribe [:get-offerings])]
+;           (if-not (nil? (:state offerings))
+;                   (fn []
+;                       [ui/scroll-view {:content-container-style (:scroll-view styles)}
+;                        (for [offering @offerings]
+;                             [offering-row offering])])
+;                   [ui/view {:style (:no-results styles)}
+;                    [ui/text {:style {:font-style "italic" :color "#BDBCD9"}}
+;                     "No offerings available at this time"]])))
 
-(defonce !state (r/atom {:count 0}))
+(defonce congris (js/require "../../assets/congris.png"))
 
-(defn root-view
-  []
-  [view {:style {:margin-top 50
-                 :margin-left 8
-                 :justify-content "center"
-                 :align-items "center"}}
-   [text {:style {:font-family "Helvetica"
-                  :font-size 20
-                  :margin-bottom 20}}
-    "Welcome to the world boot-react-native"]
-   [image {:style {:width 350
-                   :height 348
-                   :margin-bottom 20}
-           :source logo}]
-   [touchable-highlight {:style {:padding 20
-                                 :background-color "#e0e0e0"}
-                         :on-press (fn []
-                                     (swap! !state update :count inc))
-                         :underlay-color "#f0f0f0"}
-    [text {:style {:font-family "Helvetica"
-                   :font-size 14}}
-     "Count: " (:count @!state) ", click to increase"]]])
+(defn root-view []
+      (let [offerings (subscribe [:get-offerings])]
+           (fn []
+               [ui/scroll-view {:content-container-style (:scroll-view styles)}
+                (for [offering @offerings]
+                     [offering-row offering])])))
+
 
 (defn root-container
   "Wraps root-view. This is to make sure live reloading using boot-reload and
@@ -58,13 +64,14 @@
   []
   (js/console.log "MAIN")
   (enable-console-print!)
-  (.registerComponent (.-AppRegistry react)
+  (dispatch-sync [:initialize-db])
+  (.registerComponent app-registry
                       "Cajitas"
                       #(r/reactify-component #'root-container)))
 
 (defn on-js-reload
   []
-  (println "on-js-reload. state:" (pr-str @!state))
+  (println "on-js-reload. state:" (pr-str (subscribe [:get-offerings])))
 
   ;; Force re-render
   ;;
