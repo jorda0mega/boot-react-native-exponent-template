@@ -7,6 +7,11 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"@exponent/ex-navigation": "^2.1.6",
+		"babel-preset-react-native-stage-0": "^1.0.1",
+		"exp": "^0.29.0",
+		"exponent": "^12.0.0",
+		"global": "^4.3.1",
 		"react": "~15.4.0-rc.4",
 		"react-dom": "15.4.1",
 		"react-native": "0.38.0",
@@ -14,7 +19,9 @@
 	},
 	"devDependencies": {
 		"babel-jest": "17.0.2",
+		"babel-plugin-transform-react-jsx": "^6.8.0",
 		"babel-preset-react-native": "1.9.0",
+		"babel-preset-stage-0": "^6.16.0",
 		"jest": "17.0.3",
 		"jest-react-native": "17.0.3",
 		"react-test-renderer": "~15.4.0-rc.4"

@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-decorators-legacy": "^1.0.0",
+    "babel-preset-react-native-stage-0": "^1.0.1"
+  }
+}

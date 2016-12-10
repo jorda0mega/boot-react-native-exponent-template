@@ -1,5 +1,6 @@
 (ns cajitas.components.offering-row
-  (:require [reagent.core :as r :refer [atom]]
+  (:require [clojure.string :as str]
+            [reagent.core :as r :refer [atom]]
             [re-frame.core :refer [subscribe dispatch dispatch-sync]]
             [cajitas.handlers]
             [cajitas.subs]
@@ -16,7 +17,7 @@
       :height 50
       :width "100%"}}))
 
-(defonce congris (js/require "../../assets/congris.png"))
+(def congris (js/require "../../assets/congris.png"))
 
 (defmacro static-img [filename]
           `(js/require ~(str "../../assets/" filename)))
@@ -24,6 +25,6 @@
 (defn offering-row [offering]
       [ui/touchable-highlight {:on-press #(ui/alert (:plate_name offering))}
        [ui/view {:style (:row styles)}
-        [ui/image {:source (static-img (:image offering)) :style (:image styles)}]
+        [ui/image {:source congris :style (:image styles)}]
         [ui/view {:style {:flex-direction "column" :justify-content "center" :padding-left 10}}
          [ui/text {:style (:text styles)} (:plate_name offering)]]]])
