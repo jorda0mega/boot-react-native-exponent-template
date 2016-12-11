@@ -11,7 +11,7 @@
                   [weasel                         "0.7.0"           :scope  "test"]
                   [org.clojure/tools.nrepl        "0.2.12"          :scope  "test"]
                   [org.clojure/clojure            "1.8.0"]
-                  [org.clojure/clojurescript      "1.8.51"]
+                  [org.clojure/clojurescript      "1.9.293"]
                   [reagent                        "0.6.0"]
                   [re-frame                       "0.9.0-beta1"]
                   [print-foo-cljs "2.0.0"]

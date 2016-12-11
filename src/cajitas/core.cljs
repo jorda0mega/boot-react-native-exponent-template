@@ -4,6 +4,7 @@
             [cajitas.handlers]
             [cajitas.subs]
             [cajitas.shared.ui :as ui]
+            [cajitas.navigation.router :as router]
             [cajitas.components.offering-row :refer [offering-row]]
             [cljs-exponent.reagent :refer [text view image touchable-highlight] :as rn]
             [cljs.test :as test]))
@@ -45,13 +46,18 @@
 
 (defonce congris (js/require "../../assets/congris.png"))
 
-(defn root-view []
-      (let [offerings (subscribe [:get-offerings])]
-           (fn []
-               [ui/scroll-view {:content-container-style (:scroll-view styles)}
-                (for [offering @offerings]
-                     [offering-row offering])])))
+;(defn root-view []
+;      (let [offerings (subscribe [:get-offerings])]
+;           (fn []
+;               [ui/scroll-view {:content-container-style (:scroll-view styles)}
+;                (for [offering @offerings]
+;                     [offering-row offering])])))
 
+
+(defn root-view []
+      [ui/navigation-provider {:router router/router}
+       [ui/stack-navigation {:id "root"
+                             :initialRoute "home"}]])
 
 (defn root-container
   "Wraps root-view. This is to make sure live reloading using boot-reload and
