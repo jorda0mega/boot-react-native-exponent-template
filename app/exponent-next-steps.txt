@@ -1,0 +1,7 @@
+Next steps:
+------------
+1. Find your AppRegistry.registerComponent('YourApplicationName', () => YourRootComponent) call and replace it with Exponent.registerRootComponent(YourRootComponent) (you will need to import Exponent from 'exponent').
+2. Upload your app icon somewhere on the web and add it the newly created exp.json file, in the iconUrl and loading.iconUrl fields.
+3. Delete your 'android' and 'ios' directories if you have them -- you no longer need to compile any native code to run your app.
+4. We didn't detect any known incompatible packages, but if you have any with native dependencies installed, you will need to remove them from your project.
+5. Open your app in XDE and run it, fix bugs as they arise.

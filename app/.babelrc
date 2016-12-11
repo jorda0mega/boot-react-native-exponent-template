@@ -1,13 +1,5 @@
 {
-  "presets": ["react-native-stage-0"],
-  "plugins": [
-    "transform-decorators-legacy",
-    "transform-class-properties"
-  ],
-  "env": {
-    "development": {
-      "plugins": ["transform-react-jsx-source"]
-    }
-  },
-  "ignore": ["build"]
+  "presets": [
+    "babel-preset-exponent"
+  ]
 }

@@ -13,10 +13,11 @@
                   [org.clojure/clojure            "1.8.0"]
                   [org.clojure/clojurescript      "1.8.51"]
                   [reagent                        "0.6.0"]
-                  [re-frame                       "0.8.0"]
+                  [re-frame                       "0.9.0-beta1"]
                   [print-foo-cljs "2.0.0"]
                   [camel-snake-kebab "0.4.0"]
-                  [medley "0.8.1"]])
+                  [medley "0.8.1"]
+                  [cljs-exponent "0.1.3"]])
                   ;; [react-native-externs "0.0.1-SNAPSHOT"]
 
 

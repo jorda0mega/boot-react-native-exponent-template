@@ -5,6 +5,7 @@
             [cajitas.subs]
             [cajitas.shared.ui :as ui]
             [cajitas.components.offering-row :refer [offering-row]]
+            [cljs-exponent.reagent :refer [text view image touchable-highlight] :as rn]
             [cljs.test :as test]))
 
 (enable-console-print!)
@@ -19,8 +20,6 @@
 ;; (the directory that contains package.json) or below.
 ;;
 ;; We use `defonce' to prevent errors on subsequent reloads.
-
-(def app-registry (.-AppRegistry react))
 
 (def styles
   (ui/create-stylesheet
@@ -65,8 +64,8 @@
   (js/console.log "MAIN")
   (enable-console-print!)
   (dispatch-sync [:initialize-db])
-  (.registerComponent app-registry
-                      "Cajitas"
+  (.registerComponent rn/app-registry
+                      "main"
                       #(r/reactify-component #'root-container)))
 
 (defn on-js-reload
