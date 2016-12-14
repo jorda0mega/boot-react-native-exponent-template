@@ -1,4 +1,4 @@
-{:require  [cajitas.core]
- :init-fns [cajitas.core/main]
+{:require  [example.core]
+ :init-fns [example.core/main]
  :compiler-options {:optimizations :advanced
                     :externs ["externs.js" "react.ext.js" "react.native.ext.js"]}}

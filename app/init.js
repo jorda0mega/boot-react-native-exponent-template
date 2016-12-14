@@ -4,4 +4,4 @@
 global.ReactDOM = require('react-native');
 
 require('./build/main.js');
-cajitas.core.main();
+example.core.main();

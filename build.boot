@@ -1,7 +1,7 @@
 (set-env!
   :source-paths   #{"src" "react-support"}
   :resource-paths   #{"resources"}
-  :exclusions ['cljsjs/react]
+  :exclusions     ['cljsjs/react]
   :dependencies '[
                   [boot-react-native/boot-react-native      "0.3-rc2" :scope "test"]
                   [adzerk/boot-cljs               "1.7.228-1"       :scope  "test"]
@@ -37,7 +37,7 @@
 (deftask build
          []
          (comp
-           (reload :on-jsload 'cajitas.core/on-js-reload
+           (reload :on-jsload 'example.core/on-js-reload
                    :port 8079
                    :ws-host "localhost")
            (rn/before-cljsbuild)
