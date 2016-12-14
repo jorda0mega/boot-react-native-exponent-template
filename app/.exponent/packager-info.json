@@ -1,8 +1,8 @@
 {
-  "exponentServerPort": 19012,
-  "packagerPort": 19013,
-  "packagerPid": 79236,
+  "exponentServerPort": 19013,
+  "packagerPort": 19015,
+  "packagerPid": 79612,
   "exponentServerNgrokUrl": "https://vg-5kb.jorda0mega.app.exp.direct",
   "packagerNgrokUrl": "https://packager.vg-5kb.jorda0mega.app.exp.direct",
-  "ngrokPid": 79254
+  "ngrokPid": 79629
 }

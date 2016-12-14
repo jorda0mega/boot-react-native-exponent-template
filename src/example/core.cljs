@@ -5,7 +5,7 @@
             [example.subs]
             [example.shared.ui :as ui]
             [example.navigation.router :as router]
-            [example.components.offering-row :refer [offering-row]]
+            [example.components.clickable-text :refer [clickable-text]]
             [cljs-exponent.reagent :refer [text view image touchable-highlight] :as rn]
             [cljs.test :as test]))
 
