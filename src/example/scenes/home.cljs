@@ -1,5 +1,6 @@
 (ns example.scenes.home
   (:require [cljs-exponent.reagent :refer [view text]]
+            [example.components.clickable-text :refer [clickable-text]]
             [example.utils :as util]))
 
 (defn home-cp
@@ -8,10 +9,7 @@
                      :background-color "white"
                      :justify-content "center"
                      :align-items "center"}}
-       [text {:style {:font-size 24
-                      :font-weight "bold"
-                      :color "black"}}
-        "First Scene"]])
+        [clickable-text "Click me!!"]])
 
 (defn home-scene
       [props]

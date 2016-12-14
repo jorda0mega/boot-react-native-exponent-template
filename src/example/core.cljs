@@ -33,27 +33,6 @@
        :align-items "center"
        :margin-top 60}}))
 
-;(defn root-view []
-;      (let [offerings (subscribe [:get-offerings])]
-;           (if-not (nil? (:state offerings))
-;                   (fn []
-;                       [ui/scroll-view {:content-container-style (:scroll-view styles)}
-;                        (for [offering @offerings]
-;                             [offering-row offering])])
-;                   [ui/view {:style (:no-results styles)}
-;                    [ui/text {:style {:font-style "italic" :color "#BDBCD9"}}
-;                     "No offerings available at this time"]])))
-
-(defonce logo (js/require "../../assets/cljs.png"))
-
-;(defn root-view []
-;      (let [offerings (subscribe [:get-offerings])]
-;           (fn []
-;               [ui/scroll-view {:content-container-style (:scroll-view styles)}
-;                (for [offering @offerings]
-;                     [offering-row offering])])))
-
-
 (defn root-view []
       [ui/navigation-provider {:router router/router}
        [ui/stack-navigation {:id "root"
